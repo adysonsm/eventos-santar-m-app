@@ -8,18 +8,18 @@
       color="primary"
       rounded="0"
     >
-      <v-card-text class="py-3 px-2">
+      <v-card-text class="py-2 px-1">
         <v-row class="justify-center">
           <v-col cols="12" sm="8" md="6">
-            <h3 class="text-h6 text-white mb-2">Conecte-se conosco!</h3>
+            <h3 class="text-subtitle-1 text-white mb-1">Conecte-se conosco!</h3>
             <v-btn
               v-for="icon in socialIcons"
               :key="icon.name"
-              class="mx-2"
+              class="mx-1"
               :icon="icon.icon"
               variant="plain"
               color="white"
-              size="default"
+              size="small"
               :href="icon.link"
               target="_blank"
               rel="noopener noreferrer"
@@ -30,19 +30,19 @@
 
       <v-divider></v-divider>
 
-      <v-card-text class="white-text py-3 px-2">
+      <v-card-text class="white-text py-2 px-1">
         <v-row>
           <v-col cols="12" md="6" class="text-left text-sm-center text-md-left">
-            <p class="text-body-2 mb-1">
-              <v-icon size="small" class="mr-1">mdi-map-marker</v-icon>
-              Av. Tapajós, 1234 - Centro, Santarém - PA
+            <p class="text-caption mb-0">
+              <v-icon size="x-small" class="mr-1">mdi-map-marker</v-icon> Av.
+              Tapajós, 1234 - Centro, Santarém - PA
             </p>
-            <p class="text-body-2 mb-1">
-              <v-icon size="small" class="mr-1">mdi-phone</v-icon>
-              (93) 99999-9999
+            <p class="text-caption mb-0">
+              <v-icon size="x-small" class="mr-1">mdi-phone</v-icon> (93)
+              99999-9999
             </p>
-            <p class="text-body-2 mb-1">
-              <v-icon size="small" class="mr-1">mdi-email</v-icon>
+            <p class="text-caption mb-0">
+              <v-icon size="x-small" class="mr-1">mdi-email</v-icon>
               contato@eventossantarem.com
             </p>
           </v-col>
@@ -51,7 +51,7 @@
             md="6"
             class="text-right text-sm-center text-md-right"
           >
-            <p class="text-body-2 mb-0">
+            <p class="text-caption mb-0">
               &copy; {{ new Date().getFullYear() }} Eventos Santarém. Todos os
               direitos reservados.
             </p>
@@ -76,7 +76,11 @@ export default {
         icon: "mdi-facebook",
         link: "https://facebook.com/eventossantarem",
       },
-      { name: "Instagram", icon: "https://instagram.com/eventossantarem" },
+      {
+        name: "Instagram",
+        icon: "mdi-instagram",
+        link: "https://instagram.com/eventossantarem",
+      },
       {
         name: "Twitter",
         icon: "mdi-twitter",
@@ -98,26 +102,21 @@ export default {
 }
 
 .v-card {
-  // Por padrão, 'color="primary"' já usa a cor primária do seu tema Vuetify.
-  // Se quiser uma cor diferente, pode usar um hex code direto aqui ou outra classe de cor do Vuetify.
-  // Exemplo para uma cor mais clara (se seu 'primary' for escuro):
-  // background-color: #FF8A65 !important;
-  // Ou um cinza claro para o rodapé:
-  // background-color: #ECEFF1 !important;
-  // color: #424242 !important; // Se o fundo for claro, mude a cor do texto para escuro
+  // A cor 'primary' vem do seu tema Vuetify.
+  // Se quiser outra cor, altere em src/plugins/vuetify.js ou use um hex code aqui.
 }
 
 .white-text {
-  color: rgba(255, 255, 255, 0.7); // Mantém o texto claro para fundos escuros
+  color: rgba(255, 255, 255, 0.7);
 }
 
-// Estilos responsivos para quebra de texto em telas menores
+// Estilos responsivos para telas pequenas
 @media (max-width: 600px) {
-  .v-card-text p {
-    font-size: 0.75rem !important;
+  .v-card-text .text-caption {
+    font-size: 0.65rem !important; // Fonte ainda menor em telas muito pequenas
   }
   .v-btn.v-btn--icon {
-    font-size: 1.2rem !important; // Ícones um pouco menores
+    font-size: 1rem !important; // Ícones menores em telas pequenas
   }
 }
 </style>
