@@ -142,6 +142,7 @@ export default {
             "Link do evento copiado para a área de transferência!";
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error("Erro ao compartilhar:", error);
         this.snackbarMessage = "Erro ao compartilhar o evento.";
       } finally {
