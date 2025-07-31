@@ -1,11 +1,5 @@
 <template>
-  <v-card
-    class="event-card"
-    :max-width="$vuetify.display.smAndDown ? '100%' : '300'"
-    elevation="3"
-    @click="goToDetails"
-    link
-  >
+  <v-card class="event-card" elevation="3" @click="goToDetails" link>
     <v-img :src="event.imageUrl" height="180px" cover></v-img>
 
     <v-card-title class="text-h6 pb-1">{{ event.title }}</v-card-title>
@@ -58,6 +52,7 @@ export default {
 .event-card {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border-radius: 8px;
+  width: 100%;
 
   &:hover {
     transform: translateY(-5px);
@@ -91,6 +86,25 @@ export default {
 
   .price {
     color: var(--v-theme-primary);
+  }
+
+  // Mobile specific adjustments
+  @media (max-width: 960px) {
+    .v-card-title {
+      font-size: 1.1rem;
+      min-height: 48px;
+    }
+
+    .v-card-subtitle {
+      font-size: 0.9rem;
+      min-height: 32px;
+    }
+
+    .description-text {
+      font-size: 0.85em;
+      -webkit-line-clamp: 2;
+      min-height: 40px;
+    }
   }
 }
 </style>

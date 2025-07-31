@@ -149,6 +149,39 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
     padding-bottom: 10px;
+    gap: 16px;
+
+    // Mobile responsiveness - show one card at a time
+    @media (max-width: 960px) {
+      gap: 20px;
+      padding: 0 20px 10px;
+
+      :deep(.event-card) {
+        min-width: calc(100vw - 80px);
+        max-width: calc(100vw - 80px);
+        flex-shrink: 0;
+      }
+    }
+
+    // Tablet responsiveness - show two cards
+    @media (min-width: 961px) and (max-width: 1264px) {
+      gap: 16px;
+
+      :deep(.event-card) {
+        min-width: calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        flex-shrink: 0;
+      }
+    }
+
+    // Desktop - original behavior
+    @media (min-width: 1265px) {
+      :deep(.event-card) {
+        min-width: 280px;
+        max-width: 300px;
+        flex-shrink: 0;
+      }
+    }
   }
 }
 
@@ -161,10 +194,32 @@ export default {
   min-width: 250px;
   min-height: 380px;
   margin: 10px;
+  flex-shrink: 0;
 
   &:hover {
     border-color: var(--v-theme-primary);
     background-color: #f0f0f0;
+  }
+
+  // Mobile responsiveness
+  @media (max-width: 960px) {
+    min-width: calc(100vw - 80px);
+    max-width: calc(100vw - 80px);
+    margin: 0;
+  }
+
+  // Tablet responsiveness
+  @media (min-width: 961px) and (max-width: 1264px) {
+    min-width: calc(50% - 8px);
+    max-width: calc(50% - 8px);
+    margin: 0;
+  }
+
+  // Desktop
+  @media (min-width: 1265px) {
+    min-width: 280px;
+    max-width: 300px;
+    margin: 10px;
   }
 }
 </style>
