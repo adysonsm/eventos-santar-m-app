@@ -112,6 +112,7 @@ export default {
     },
     async processPayment(method) {
       if (!this.event) {
+        // eslint-disable-next-line no-console
         console.error(
           "Evento não disponível para processar pagamento. Redirecionando."
         );
