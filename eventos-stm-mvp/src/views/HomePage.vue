@@ -15,16 +15,16 @@
       <EventCarousel :featuredEvents="featuredEvents" />
 
       <v-card class="events-section pa-5" elevation="2" rounded="lg">
-        <v-card-title class="text-h5 text-center mb-6"
+        <v-card-title class="text-h5 text-center mb-8"
           >Explore por Categoria</v-card-title
         >
 
         <div
           v-for="category in categories"
           :key="category.slug"
-          class="category-row mb-8"
+          class="category-row mb-10"
         >
-          <div class="d-flex justify-space-between align-center px-4">
+          <div class="d-flex justify-space-between align-center px-2 mb-4">
             <div class="text-h6 font-weight-medium">{{ category.name }}</div>
             <v-btn
               color="primary"
@@ -113,34 +113,58 @@ export default {
 }
 
 .main-content {
-  padding: 20px;
+  padding: 16px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .events-section {
   background-color: white;
-  padding: 20px;
-  margin-top: 32px;
+  padding: 16px;
+  margin-top: 24px;
+  border-radius: 16px;
+
+  @media (min-width: 768px) {
+    padding: 24px;
+    margin-top: 32px;
+  }
 }
 
 .category-row {
   .event-cards-scroll-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 0 10px;
+    padding: 0 8px 16px 8px;
+    margin: 0 -8px;
     scrollbar-width: thin;
     scrollbar-color: var(--v-theme-primary) #f1f1f1;
+
+    @media (min-width: 768px) {
+      padding: 0 12px 20px 12px;
+      margin: 0 -12px;
+    }
   }
+
   .event-cards-scroll-wrapper::-webkit-scrollbar {
-    height: 8px;
+    height: 6px;
+
+    @media (min-width: 768px) {
+      height: 8px;
+    }
   }
+
   .event-cards-scroll-wrapper::-webkit-scrollbar-thumb {
     background-color: var(--v-theme-primary);
     border-radius: 10px;
   }
+
   .event-cards-scroll-wrapper::-webkit-scrollbar-track {
     background: #f1f1f1;
+    border-radius: 10px;
   }
 
   .event-cards-scroll {
@@ -148,23 +172,37 @@ export default {
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding-bottom: 10px;
+    gap: 12px;
+    padding: 4px 0;
+
+    @media (min-width: 768px) {
+      gap: 16px;
+      padding: 8px 0;
+    }
   }
 }
 
 .see-more-placeholder {
   background-color: #f8f8f8;
   border: 2px dashed #e0e0e0;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  min-width: 250px;
-  min-height: 380px;
-  margin: 10px;
+  min-width: 240px;
+  min-height: 360px;
+  flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    min-width: 260px;
+    min-height: 380px;
+    border-radius: 16px;
+  }
 
   &:hover {
     border-color: var(--v-theme-primary);
     background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 }
 </style>
